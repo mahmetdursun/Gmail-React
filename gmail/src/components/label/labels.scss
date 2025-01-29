@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+// Değişkenler
+$ghost-white: #f7f8fc;
+$equinox: #64686c;
+$thames-dusk: #64676c;
+$moon-white: #eaf1fb;
+$sonic-silver: #757575ff;
+$bleu-de-france: #2f80ed;
+$icy-landscape: #c3e7ff;
+$black-silver: #0000004d;
+$black-oak: #4f4f4f;
+$black-panther: #414244;
+$veiling-waterfalls: #d3e3fd;
+$lavendar-wisp: #eaebef;
+$stiletto: #313234;
+$white: #ffffff;
+$black: #000000;
+$smoked-pearl: #6d6e70ff;
+$carbon: #333333ff;
+$cotton-ball: #f2f6fc;
+$shadowed-steel: #4a4a4aff;
+$dead-blue-eyes: #0e57cbff;
+$mission-control: #818488ff;
+$black-dark: #00000099;
+$noghrei-silver: #bdbdbdff;
+$placebo-blue: #ecf2fcff;
+$covered-in-platinum: #b8b9baff;
+$anti-flash-white: #f1f3f4ff;
+$american-yellow: #f4b400;
+$christmas-silver: #e0e0e0ff;
+$squant: #666666ff;
+$mission-control: #818488;
+$brilliant-liquorice: #535456ff;
+$bái-sè-white: #eceff1ff;
+$lighthouse: #f4f4f4ff;
+$fantasia: #747789ff;
+$cerebral-grey: #ccccccff;
+$snowflake: #f0f0f0ff;
+$bisque: #ffe4c4ff;
+$back-black: #0000001a;
+
+$ff-sans: "Open Sans", sans-serif;
+$ff-roboto: "Roboto", sans-serif;
+
+$fs-5: 0.313rem;
+$fs-9: 0.563rem;
+$fs-10: 0.625rem;
+$fs-11: 0.688rem;
+$fs-12: 0.75rem;
+$fs-13: 0.813rem;
+$fs-14: 0.875rem;
+$fs-15: 0.938rem;
+$fs-16: 1rem;
+$fs-17: 1.063rem;
+$fs-18: 1.125rem;
+$fs-19: 1.188rem;
+$fs-27: 1.688rem;
+$fs-41: 2.563rem;
+
+$lh-11: 0.688rem;
+$lh-12: 0.75rem;
+$lh-14: 0.875rem;
+$lh-15: 0.938rem;
+$lh-17: 1.063rem;
+$lh-19: 1.188rem;
+$lh-20: 1.25rem;
+$lh-24: 1.5rem;
+$lh-25: 1.563rem;
+
+
+.sidebar {
+  &__labels {
+    padding-top: 26px;
+
+    &-add {
+      padding-left: 23px;
+      display: flex;
+      font-family: $ff-sans;
+      font-size: $fs-15;
+      line-height: $lh-20;
+      font-weight: 600;
+      color: $stiletto;
+
+      &-header {
+        margin: 0;
+        padding-bottom: 10px;
+      }
+
+      &-icon {
+        padding-left: 119px;
+        padding-top: 4px;
+        font-size: $fs-12;
+        color: $black;
+        z-index: 10;
+
+        &.collapsed {
+          margin-left: 0px;
+        }
+      }
+    }
+
+    &-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $black-dark;
+      display: none;
+      z-index: 99;
+    }
+
+    &-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32%;
+      background-color: $white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px $black-silver;
+      display: none;
+      z-index: 100;
+
+      &-header {
+        font-size: $fs-18;
+        font-weight: bold;
+        margin: 0;
+        padding: 24px 24px 16px 24px;
+      }
+
+      &-content {
+        padding: 0 24px 20px;
+
+        &-label {
+          display: block;
+          margin-bottom: 8px;
+        }
+
+        &-select,
+        &-text {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid $ghost-white;
+          border-radius: 4px;
+          margin-bottom: 15px;
+        }
+
+        &-check {
+          display: flex;
+
+          &-input {
+            margin-right: 8px;
+          }
+        }
+      }
+
+      &-footer {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 24px 20px;
+        gap: 8px;
+
+        &-close {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 40px;
+          cursor: pointer;
+          color: $dead-blue-eyes;
+          background-color: $white;
+
+          &:hover {
+            background-color: $placebo-blue;
+          }
+        }
+
+        &-create {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 40px;
+          cursor: pointer;
+          color: $anti-flash-white;
+          background-color: $bleu-de-france;
+        }
+      }
+    }
+
+    &-categories {
+      display: flex;
+      align-items: center;
+      padding-left: 23px;
+      padding-block: 9px;
+      position: relative;
+
+      &:hover {
+        background-color: $lavendar-wisp;
+        border-top-right-radius: 17px;
+        border-bottom-right-radius: 17px;
+      }
+
+      &-article {
+        width: 14px;
+        height: 11px;
+        background-color: $thames-dusk;
+        clip-path: polygon(
+          0 0,
+          85% 0,
+          100% 50%,
+          85% 100%,
+          0 100%
+        ); //sol kısımda labelın altında değiştirilebilir renk kutusu
+      }
+
+      &-text {
+        font-family: $ff-roboto;
+        font-size: $fs-13;
+        line-height: $lh-15;
+        color: $black-panther;
+        font-weight: 400;
+        padding-left: 16px;
+        margin: 0;
+      }
+
+      &-icon {
+        margin-left: auto;
+        cursor: pointer;
+        margin-right: 8px;
+
+        &-menu {
+          position: absolute;
+          background-color: $white;
+          border: 1px solid $cerebral-grey;
+          border-radius: 5px;
+          box-shadow: 0 4px 6px $back-black;
+          padding: 10px;
+          list-style: none;
+          z-index: 100;
+
+          &-edit,
+          &-delete {
+            cursor: pointer;
+            padding: 5px;
+            font-size: $fs-14;
+            color: $carbon;
+            transition: background-color 0.3s;
+
+            &:hover {
+              background-color: $snowflake;
+            }
+          }
+        }
+      }
+    }
+  }
+}
