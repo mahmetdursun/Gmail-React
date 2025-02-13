@@ -1,31 +1,30 @@
 import React from "react";
 import calendarIcon from '../../assets/images/calendar-icon.png'; 
 import { FaRegLightbulb, FaUser, FaMinus, FaPlus } from 'react-icons/fa';
+import './item.scss'
 function item() {
   return (
-    <>
-      <div className="gmail-project__coverage-icons">
-        <div className="gmail-project__coverage-icons-calendar">
+      <div className="icons">
+        <div className="icons-calendar">
           <img src={calendarIcon} alt="calendar" />
         </div>
 
-        <div className="gmail-project__coverage-icons-light">
+        <div className="icons-light">
           <FaRegLightbulb />
         </div>
 
-        <div className="gmail-project__coverage-icons-user">
+        <div className="icons-user">
           <FaUser />
         </div>
 
-        <div className="gmail-project__coverage-icons-minus">
+        <div className="icons-minus">
           <FaMinus />
         </div>
 
-        <div className="gmail-project__coverage-icons-plus">
+        <div className="icons-plus">
           <FaPlus />
         </div>
       </div>
-    </>
   );
 }
 

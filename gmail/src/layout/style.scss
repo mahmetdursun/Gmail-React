@@ -1,0 +1,31 @@
+@use "../components/variables/variables.scss" as *;
+
+body{
+    background-color: $ghost-white;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  &__box {
+    display: flex;
+    flex: 1 1 auto;
+
+    &-sidebar{
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-outlet{
+      background-color: gainsboro;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-item{
+
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+.categories {
+  display: flex;
+  align-items: center;
+  padding-left: 23px;
+  padding-block: 9px;
+  position: relative;
+}
+.categories:hover {
+  background-color: #eaebef;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+}
+.categories-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.813rem;
+  line-height: 0.938rem;
+  color: #414244;
+  font-weight: 400;
+  padding-left: 16px;
+  margin: 0;
+}
+.categories-icon {
+  margin-left: auto;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.categories-icon-menu {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1019607843);
+  padding: 10px;
+  list-style: none;
+  z-index: 100;
+}
+.categories-icon-menu-edit, .categories-icon-menu-delete {
+  cursor: pointer;
+  padding: 5px;
+  font-size: 0.875rem;
+  color: #333333;
+  transition: background-color 0.3s;
+}
+.categories-icon-menu-edit:hover, .categories-icon-menu-delete:hover {
+  background-color: #f0f0f0;
+}/*# sourceMappingURL=labelItem.css.map */

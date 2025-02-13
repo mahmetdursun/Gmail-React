@@ -1,26 +1,32 @@
-import { AiOutlineMenu, AiOutlineSearch, AiOutlineSetting, AiOutlineQuestionCircle, AiOutlineUser, AiOutlineStar, AiOutlineClockCircle, AiOutlineCaretRight, AiOutlineFile, AiOutlineDown, AiFillDelete } from 'react-icons/ai';
-import { MdTune, MdGridView, MdInbox } from 'react-icons/md';
-import { FaPen, FaPlus } from "react-icons/fa"; 
+import { AiOutlineMenu, AiOutlineSearch, AiOutlineSetting, AiOutlineQuestionCircle, AiOutlineStar, AiOutlineClockCircle, AiOutlineCaretRight, AiOutlineFile, AiOutlineDown, AiOutlineUp, AiFillDelete } from 'react-icons/ai';
+import { MdTune, MdInbox, MdLabel } from 'react-icons/md';
+import { FaPlus, FaUserCircle } from "react-icons/fa"; 
+import { CgMenuGridO } from "react-icons/cg";
+import { RiDeleteBinLine } from "react-icons/ri";
+import { PiPaperPlaneRightBold } from "react-icons/pi";
+import { ImPencil } from "react-icons/im";
 
 const icons = {
   menu: <AiOutlineMenu />,
   search: <AiOutlineSearch />,
   settings: <AiOutlineSetting />,
   help: <AiOutlineQuestionCircle />,
-  user: <AiOutlineUser />,
+  user: <FaUserCircle />,
   tune: <MdTune />,
-  grid: <MdGridView />,
+  grid: <CgMenuGridO />,
   
   inbox: <MdInbox />,
   star: <AiOutlineStar />,
   snooze: <AiOutlineClockCircle />,
-  sent: <AiOutlineCaretRight />,
+  sent: <PiPaperPlaneRightBold />,
   drafts: <AiOutlineFile />,
   more: <AiOutlineDown />,
-  trash: <AiFillDelete />,
+  less: <AiOutlineUp />,
+  trash: <RiDeleteBinLine />,
+  label:<MdLabel />,
   
-  compose: <FaPen />,
-  add: <FaPlus /> // ✅ Burada `FaPlus` eklenmiş olmalı!
+  compose: <ImPencil />,
+  add: <FaPlus /> 
 };
 
-export default icons; // 🔹 Dışa aktarma doğru mu kontrol et!
+export default icons; 
