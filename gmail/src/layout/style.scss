@@ -1,7 +1,7 @@
 @use "../components/variables/variables.scss" as *;
 
-body{
-    background-color: $ghost-white;
+body {
+  background-color: $ghost-white;
 }
 
 .layout {
@@ -12,20 +12,27 @@ body{
   &__box {
     display: flex;
     flex: 1 1 auto;
+    
 
-    &-sidebar{
+    &-sidebar {
       display: flex;
       flex-direction: column;
+      // flex-shrink: 0; // Sidebar'ın boyutunun sabit kalmasını sağlar
     }
 
-    &-outlet{
-      background-color: gainsboro;
-        display: flex;
-        flex-direction: column;
+    &-outlet {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1; // Burası tüm boşluğu dolduracak
+      background-color: $white;
+      border-radius: 15px;
+      height: 175%;
+      margin-top: 9px;
+      transition: width 0.3s ease;
+      margin-left: 12px;
     }
 
-    &-item{
-
+    &-item {
     }
   }
 }

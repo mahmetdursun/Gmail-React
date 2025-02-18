@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Sidebar from '../components/sidebar/Sidebar';
 import { Outlet, useLocation } from 'react-router-dom';
-import Item from '../components/item/item';
+import Tools from '../components/tools/tools';
 import './style.scss';
 
 function GmailLayout() {
@@ -20,11 +20,10 @@ function GmailLayout() {
 
         <div className='layout__box-outlet'>
           <Outlet />
-          <div>sadasşld</div>
         </div>
 
         <div className='layout__box-item'>
-          <Item />
+          <Tools />
         </div>
       </div>
     </div>

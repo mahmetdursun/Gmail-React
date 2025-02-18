@@ -18,7 +18,13 @@ body {
   flex-direction: column;
 }
 .layout__box-outlet {
-  background-color: gainsboro;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  background-color: #ffffff;
+  border-radius: 15px;
+  height: 175%;
+  margin-top: 9px;
+  transition: width 0.3s ease;
+  margin-left: 12px;
 }/*# sourceMappingURL=style.css.map */

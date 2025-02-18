@@ -1,8 +1,11 @@
 import React from 'react'
+import MailView from '../../components/mail-view/mailView'
 
 function bin() {
   return (
-    <div>bin</div>
+    <div>
+      <MailView/>
+    </div>
   )
 }
 

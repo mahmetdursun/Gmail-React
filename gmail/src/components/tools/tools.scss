@@ -1,0 +1,35 @@
+@use '../variables/variables.scss' as *;
+
+.icons{
+    padding-top: 19px;
+    margin-left: 12px;
+    padding-right: 5px;
+    
+    &-calendar{
+      font-size: $fs-16;
+      padding-bottom: 32px;
+    }
+
+    &-light{
+      font-size: $fs-17;
+      padding-bottom: 32px;
+    }
+
+    &-user{
+      font-size: $fs-16;
+      padding-bottom: 32px;
+      color: $dead-blue-eyes;
+    }
+
+    &-minus{
+      font-size: $fs-17;
+      padding-bottom: 32px;
+      color: $carte-blanche;
+    }
+
+    &-plus{
+      font-size: $fs-14;
+      padding-bottom: 32px;
+      color: $shadowed-steel;
+    }
+  }

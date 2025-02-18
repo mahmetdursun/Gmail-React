@@ -1,8 +1,11 @@
 import React from 'react'
+import MailView from '../../components/mail-view/mailView'
 
 function starred() {
   return (
-    <div>starred</div>
+    <div>
+      <MailView/>
+    </div>
   )
 }
 

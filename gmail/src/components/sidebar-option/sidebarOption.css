@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+.soption {
+  padding-left: 23px;
+}
+.soption:hover {
+  background-color: #eaebef;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+}
+.soption.active {
+  background-color: #d3e3fd;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+}
+.soption.active p,
+.soption.active i {
+  color: #000000;
+}
+.soption__box {
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+.soption__box-icon {
+  font-size: 1.063rem;
+  color: #5f6368;
+}
+.soption__box-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.813rem;
+  line-height: 0.938rem;
+  font-weight: 400;
+  color: #414244;
+  padding-top: 6px;
+  padding-bottom: 7px;
+  padding-left: 20px;
+  margin: 0;
+  text-decoration: none;
+}/*# sourceMappingURL=sidebarOption.css.map */
