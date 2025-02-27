@@ -1,0 +1,79 @@
+@use "../variables/style.scss" as *;
+
+.option {
+  &__small {  // Sidebar için küçük boyut
+    padding-left: 23px;
+
+    &:hover {
+      background-color: $lavendar-wisp;
+      border-top-right-radius: 17px;
+      border-bottom-right-radius: 17px;
+    }
+
+    &.active {
+      background-color: $veiling-waterfalls;
+      border-top-right-radius: 17px;
+      border-bottom-right-radius: 17px;
+
+      p, i {
+        color: $black;
+      }
+    }
+
+    &-box {
+      display: flex;
+      padding-top: 8px;
+      padding-right: 10px;
+      text-decoration: none;
+
+      &-icon {
+        font-size: $fs-17;
+        color: $grey-web;
+      }
+
+      &-text {
+        font-family: $ff-roboto;
+        font-size: $fs-13;
+        line-height: $lh-15;
+        font-weight: 400;
+        color: $black-panther;
+        // padding-top: 6px;
+        // padding-bottom: 7px;
+        padding-left: 20px;
+        margin: 0;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__medium { //mail-view 
+    padding-left: 0;
+    display: flex;
+    flex-direction: row;
+    padding-top: 12px;
+    
+    &-box {
+      display: flex;
+      padding: 18px 127px 18px 15px;
+
+      &-icon {
+        color: $trolley-grey;
+      }
+
+      &:hover {
+        background-color: $lighthouse;
+      }
+
+      &-text {
+        font-family: $ff-roboto;
+        font-size: $fs-13;
+        line-height: $lh-15;
+        font-weight: 600;
+        padding-left: 16px;
+        padding-bottom: 2px;
+        margin: 0;
+        color: $black-oak;
+      }
+    }
+  }
+}

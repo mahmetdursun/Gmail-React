@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+.mailview__controller {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+  margin-left: 18px;
+  position: relative;
+}
+.mailview__controller-check {
+  width: 13px;
+  height: 13px;
+}
+.mailview__controller-check:hover {
+  background-color: #eaebef;
+  border-radius: 5%;
+}
+.mailview__controller-down {
+  padding-left: 7px;
+  font-size: 0.75rem;
+}
+.mailview__controller-refresh, .mailview__controller-other {
+  display: flex;
+  padding-left: 27px;
+}
+.mailview__controller-trash, .mailview__controller-open {
+  padding-left: 27px;
+  display: none;
+}
+.mailview__controller-interval {
+  display: flex;
+  margin-left: auto;
+  padding-right: 35px;
+}
+.mailview__controller-interval-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.625rem;
+  line-height: 0.688rem;
+  font-weight: 500;
+  color: #818488;
+  padding-top: 2px;
+  margin: 0;
+}
+.mailview__controller-interval-left, .mailview__controller-interval-right {
+  padding-left: 23px;
+  font-size: 0.625rem;
+  color: #bdbdbd;
+  padding-top: 3px;
+}/*# sourceMappingURL=style.css.map */

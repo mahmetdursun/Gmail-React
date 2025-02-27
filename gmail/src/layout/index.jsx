@@ -1,21 +1,24 @@
-import React from 'react';
-import Navbar from '../components/Navbar/Navbar';
-import Sidebar from '../components/sidebar/Sidebar';
-import { Outlet, useLocation } from 'react-router-dom';
-import Tools from '../components/tools/tools';
+import React, { useState } from 'react';
+import Navbar from '../components/navbar';
+import Sidebar from '../components/sidebar';
+import { Outlet } from 'react-router-dom';
+import Tools from '../components/tools';
 import './style.scss';
 
 function GmailLayout() {
-  const location = useLocation();  // Mevcut URL'yi almak için
-  console.log("Current Route:", location.pathname);  // Log ile kontrol et
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsCollapsed(prev => !prev);
+  };
 
   return (
-    <div className='layout'>
-      <Navbar />
+    <div className={`layout ${isCollapsed ? "collapsed" : ""}`}>
+      <Navbar toggleSidebar={toggleSidebar} />
 
       <div className='layout__box'>
         <div className='layout__box-sidebar'>
-          <Sidebar />
+          <Sidebar isCollapsed={isCollapsed} />
         </div>
 
         <div className='layout__box-outlet'>

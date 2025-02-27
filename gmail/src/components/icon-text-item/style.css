@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+.option__small {
+  padding-left: 23px;
+}
+.option__small:hover {
+  background-color: #eaebef;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+}
+.option__small.active {
+  background-color: #d3e3fd;
+  border-top-right-radius: 17px;
+  border-bottom-right-radius: 17px;
+}
+.option__small.active p, .option__small.active i {
+  color: #000000;
+}
+.option__small-box {
+  display: flex;
+  padding-top: 8px;
+  padding-right: 10px;
+  text-decoration: none;
+}
+.option__small-box-icon {
+  font-size: 1.063rem;
+  color: #5f6368;
+}
+.option__small-box-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.813rem;
+  line-height: 0.938rem;
+  font-weight: 400;
+  color: #414244;
+  padding-left: 20px;
+  margin: 0;
+  text-decoration: none;
+}
+.option__medium {
+  padding-left: 0;
+  display: flex;
+  flex-direction: row;
+  padding-top: 12px;
+}
+.option__medium-box {
+  display: flex;
+  padding: 18px 127px 18px 15px;
+}
+.option__medium-box-icon {
+  color: #828282;
+}
+.option__medium-box:hover {
+  background-color: #f4f4f4;
+}
+.option__medium-box-text {
+  font-family: "Roboto", sans-serif;
+  font-size: 0.813rem;
+  line-height: 0.938rem;
+  font-weight: 600;
+  padding-left: 16px;
+  padding-bottom: 2px;
+  margin: 0;
+  color: #4f4f4f;
+}/*# sourceMappingURL=style.css.map */

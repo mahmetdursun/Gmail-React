@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+.icons {
+  padding-top: 19px;
+  margin-left: 12px;
+  padding-right: 5px;
+}
+.icons-calendar {
+  font-size: 1rem;
+  padding-bottom: 32px;
+}
+.icons-light {
+  font-size: 1.063rem;
+  padding-bottom: 32px;
+}
+.icons-user {
+  font-size: 1rem;
+  padding-bottom: 32px;
+  color: #0e57cb;
+}
+.icons-minus {
+  font-size: 1.063rem;
+  padding-bottom: 32px;
+  color: #ededfe;
+}
+.icons-plus {
+  font-size: 0.875rem;
+  padding-bottom: 32px;
+  color: #4a4a4a;
+}/*# sourceMappingURL=style.css.map */
