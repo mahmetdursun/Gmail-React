@@ -1,12 +1,12 @@
 import React from 'react'
 import MailView from '../../components/mail-view/index'
 
-function starred() {
+function bin() {
   return (
     <div>
-      <MailView/>
+      <MailView bin={true}/>
     </div>
   )
 }
 
-export default starred
+export default bin

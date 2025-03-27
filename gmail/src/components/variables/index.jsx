@@ -2,19 +2,21 @@ import {
   AiOutlineMenu, AiOutlineSearch, AiOutlineSetting, AiOutlineQuestionCircle, 
   AiOutlineStar, AiOutlineClockCircle, AiOutlineCaretRight, AiOutlineFile, 
   AiOutlineDown, AiOutlineUp, AiOutlineClose, AiOutlineMinus, AiOutlineLock, AiOutlineEdit, 
-  AiOutlineMail,AiFillStar,AiOutlineDelete,
+  AiOutlineMail,AiFillStar,AiOutlineDelete,AiOutlineArrowLeft, AiOutlineCheckCircle
 } from 'react-icons/ai';
 
-import { MdTune, MdInbox, MdLabel,MdArchive, MdOutlinePeopleAlt } from 'react-icons/md';
-import { FaPlus, FaUserCircle, FaImage, FaTrash, FaEnvelopeOpen,FaGripVertical } from "react-icons/fa"; 
+import { MdTune, MdInbox, MdLabel,MdArchive, MdOutlinePeopleAlt, MdOutlineWarning, MdPrint } from 'react-icons/md';
+import { FaPlus, FaUserCircle, FaImage, FaTrash, FaEnvelopeOpen,FaGripVertical,FaFolderPlus, FaEllipsisV, FaShare } from "react-icons/fa"; 
 import { CgMenuGridO } from "react-icons/cg";
-import { RiDeleteBinLine } from "react-icons/ri";
+import { RiDeleteBinLine,RiReplyFill } from "react-icons/ri";
 import { PiPaperPlaneRightBold, PiGoogleDriveLogoDuotone } from "react-icons/pi";
 import { ImPencil } from "react-icons/im";
 import { BsThreeDotsVertical, BsEmojiLaughing, BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { HiPaperClip } from "react-icons/hi";
 import { FaCaretDown, FaRotateRight } from "react-icons/fa6";
 import { GoTag } from "react-icons/go";
+import { IoMailOpenOutline } from "react-icons/io5";
+import { LiaTrashRestoreSolid } from "react-icons/lia";
 
 const icons = {
   menu: <AiOutlineMenu />,
@@ -49,14 +51,12 @@ const icons = {
   edit: <AiOutlineEdit />,
   threeDots: <BsThreeDotsVertical />,
 
-  check: <AiOutlineMail />,  
   down: <FaCaretDown />, 
   refresh: <FaRotateRight />, 
   trashAlt: <FaTrash />, 
   openMail: <FaEnvelopeOpen />, 
   chevronLeft: <BsChevronLeft />, 
   chevronRight: <BsChevronRight />, 
-
 
   tag:<GoTag />,
   social:<MdOutlinePeopleAlt />,
@@ -65,6 +65,19 @@ const icons = {
   solidStar: <AiFillStar />,
   archive: <MdArchive />,
   delete: <AiOutlineDelete />,
+  restore: <LiaTrashRestoreSolid />,
+
+  openMail: <AiOutlineMail />, 
+  closedMail: <IoMailOpenOutline />, 
+
+  back: <AiOutlineArrowLeft />, 
+  exclamation: <MdOutlineWarning />, 
+  check: <AiOutlineCheckCircle />, 
+  folder: <FaFolderPlus />,
+  ellipsis: <FaEllipsisV />,
+  print: <MdPrint />,
+  share: <FaShare />,
+  reply: <RiReplyFill />,
 };
 
 export default icons;

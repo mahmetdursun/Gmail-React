@@ -62,7 +62,7 @@ function Labels({ isCollapsed }) {
           icon={icons.label}
           text={isCollapsed ? "" : category.name}
           color={category.color}
-          variant="small"
+          variant="sidemenu"
         />
       ))}
     </div>

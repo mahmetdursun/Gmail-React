@@ -51,7 +51,7 @@ function Sidebar({ isCollapsed }) {
             path={item.path}
             isToggle={item.isToggle}
             toggleMenu={toggleMenu}
-            variant="small"
+            variant="sidemenu"
           />
         );
       })}

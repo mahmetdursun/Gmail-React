@@ -1,7 +1,7 @@
 @use "../variables/style.scss" as *;
 
 .option {
-  &__small {  // Sidebar için küçük boyut
+  &__sidemenu {  
     padding-left: 23px;
 
     &:hover {
@@ -46,7 +46,7 @@
     }
   }
 
-  &__medium { //mail-view 
+  &__category { //mail-view 
     padding-left: 0;
     display: flex;
     flex-direction: row;

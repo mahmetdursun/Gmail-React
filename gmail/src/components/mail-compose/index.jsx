@@ -1,8 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss"; 
 import icons from "../variables";
 
+
 function Compose({ toggleCompose }) {
+
+  const [to, setTo] = useState("");
+  const [subject, setSubject] = useState("");
+  const [body, setBody] = useState("");
+
+  const handleSendMail = () => {
+    if (!to || !subject || !body) {
+      alert("Lütfen tüm alanları doldurun.");
+      return;
+    }
+  
+    const newMail = {
+      id: `sent-${Date.now()}`, // Unique ID oluştur
+      sender: to, // Kullanıcıdan gönderildiği için "Me" olarak set edilir
+      detail: subject,
+      date: new Date().toLocaleDateString(),
+      starred: false,
+      deleted: false,
+      read: true,
+      body: body,
+      email: to,
+    };
+    console.log("Gönderilen Mail:", newMail); // ✅ Eklenecek maili kontrol et
+  
+   // 🛑 **GÜVENLİ LOCALSTORAGE OKUMA (NULL HATASI ENGELLENDİ)**
+   let storedMails;
+   try {
+     storedMails = JSON.parse(localStorage.getItem("mailItems-Sent")) || [];
+   } catch (error) {
+     console.error("❌ LocalStorage Parse Hatası:", error);
+     storedMails = [];
+   }
+
+   const updatedMails = [...storedMails, newMail];
+
+   localStorage.setItem("mailItems-Sent", JSON.stringify(updatedMails));
+
+   console.log("📩 Yeni Mail Gönderildi:", newMail);
+   console.log("📥 Güncellenmiş Sent Kutusu:", updatedMails);
+
+   toggleCompose();
+ };
+  
+
+
   return (
     <div className="compose">
       <div className="compose__header">
@@ -19,8 +65,9 @@ function Compose({ toggleCompose }) {
           <label className="compose__content-to-text" htmlFor="to"></label>
           <input
             className="compose__content-to-input"
-            id="to"
+            value={to}
             placeholder="To"
+            onChange={(e) => setTo(e.target.value)}
             required
           />
           <hr className="compose__content-to-stick" />
@@ -30,8 +77,9 @@ function Compose({ toggleCompose }) {
           <input
             className="compose__content-subject-input"
             type="text"
-            id="subject"
+            value={subject}
             placeholder="Subject"
+            onChange={(e) => setSubject(e.target.value)}
             required
           />
           <hr className="compose__content-subject-stick" />
@@ -39,14 +87,15 @@ function Compose({ toggleCompose }) {
 
         <textarea
           className="compose__content-body"
-          id="body"
+          value={body}
           placeholder="Write your message..."
+          onChange={(e) => setBody(e.target.value)}
           required
         ></textarea>
       </div>
 
       <div className="compose__footer">
-        <button className="compose__footer-send" id="send-btn">
+        <button className="compose__footer-send" onClick={handleSendMail}>
           Send
         </button>
         {/* gap ile boşluk ekle */}

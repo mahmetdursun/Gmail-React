@@ -1,0 +1,193 @@
+@use "../variables/style.scss" as *;
+
+.mdetail{
+    padding-left: 18px;
+    padding-top: 16px;
+
+    &__icons{
+      display: flex;
+      align-items: center;
+      color: $black-oak;
+      font-size: $fs-14;
+
+      &-back{
+        cursor: pointer;
+      }
+
+      &-archive{
+        padding-left: 48px;
+        padding-right: 23px;
+      }
+
+      &-exclamation,&-trash,&-stick,&-open,
+      &-clock,&-check,&-folder,&-left{
+        padding-right: 23px;
+      }
+
+      &-interval{
+        display: flex;
+        margin-left: auto;
+        padding-right: 35px;
+
+        &-text{
+          font-family: $ff-roboto;
+          font-size: $fs-10;
+          line-height: $lh-11;
+          font-weight: 500;
+          color: $mission-control;
+          padding-top: 2px;
+          margin: 0;
+        }
+
+        &-left{
+          padding-left: 23px;
+          font-size: $fs-10;
+          color: $noghrei-silver;
+          padding-top: 3px;
+        }
+
+        &-right{
+          padding-left: 28px;
+          font-size: $fs-10;
+          color: $noghrei-silver;
+          padding-top: 3px;
+        }
+      }
+    }
+
+    &__content{
+      display: flex;
+      align-items: center;
+      padding: 41px 39px 23px 57px;     
+      width: 100%;
+
+      &-text{
+        font-family: $ff-sans;
+        font-size: $fs-18;
+        line-height: $lh-24;
+        font-weight: 400;
+        margin: 0;
+        padding-right: 10px;
+      }
+
+      &-inbox{
+        display: flex;
+        width: 50px;
+        height: 18px;
+        background-color: $christmas-silver;
+        border-radius: 4px;
+
+        &-text{
+          font-family: $ff-roboto;
+          font-size: $fs-11;
+          line-height: $lh-12;
+          font-weight: 500;
+          color: $squant;
+          padding: 3px 0 2px 6px;
+          margin: 0;
+        }
+
+        &-cancel{
+          padding: 9px 5px 15px 5px;
+          font-size: $fs-5;
+          color: $squant;
+        }
+      }
+      &-icons{
+        display: flex;
+        margin-left: auto;
+        padding-right: 90px;
+        color: $thames-dusk;
+        
+        &-print{
+          font-size: $fs-13;
+        }
+
+        &-share{
+          font-size: $fs-12;
+          padding-left: 19px;
+        }
+      }
+    }
+
+    &__sender{
+      display: flex;
+      padding: 0 39px 20px 0;
+
+      &-user{
+        font-size: $fs-41;
+        color: $bleu-de-france;
+      }
+
+      &-name{
+        display: flex;
+        font-family: $ff-roboto;
+        font-size: $fs-15;
+        line-height: $lh-17;
+        font-weight: 700;
+        padding: 2px 0 0 16px;
+
+        &-mail{
+          font-family: $ff-roboto;
+          font-size: $fs-15;
+          line-height: $lh-17;
+          font-weight: 700;
+          color: $sonic-silver;
+        }
+      }
+
+      &-info{
+        display: flex;
+        margin-left: auto;
+
+        &-text{
+          font-family: $ff-roboto;
+          font-size: $fs-10;
+          line-height: $lh-11;
+          font-weight: 500;
+          color: $mission-control;
+          margin: 0;
+        }
+
+        &-star{
+          font-size: $fs-13;
+          padding: 4px 0 0 20px;
+          cursor: pointer;
+          transition: color 0.3s ease;
+          color: $noghrei-silver;
+
+          &.fa-solid {
+            color: $american-yellow;
+          }
+        }
+
+        &-reply{
+          font-size: $fs-14;
+          padding: 0 0 0 20px;
+        }
+
+        &-stick{
+          font-size: $fs-11;
+          padding: 2px 0 0 20px;
+        }
+      }
+    }
+
+    &__explanation{
+      padding: 12px 95px 0 57px;
+
+      &-text{
+        font-family: $ff-roboto;
+        font-size: $fs-14;
+        line-height: $lh-19;
+        font-weight: 400;
+        color: $brilliant-liquorice;
+        margin: 0;
+      }
+
+      &-divider{
+        color: $bái-sè-white;
+        margin: 30px 0;
+      }
+    }
+  }

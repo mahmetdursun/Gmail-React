@@ -1,60 +1,230 @@
 @use "../variables/style.scss" as *;
 
-.mailview{
-    &__controller{
-        display: flex;
-        align-items: center;
-        margin-top: 16px;
-        margin-left: 18px;
-        position: relative;
-    
-        &-check{
-          width: 13px;
-          height: 13px;
-    
-          &:hover{
-            background-color: $lavendar-wisp;
-            border-radius: 5%;
-          }
+.mailview {
+  &__controller {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    margin-left: 18px;
+    position: relative;
+
+    &-check {
+      width: 13px;
+      height: 13px;
+
+      &:hover {
+        background-color: $lavendar-wisp;
+        border-radius: 5%;
+      }
+    }
+
+    &-down {
+      padding-left: 7px;
+      font-size: $fs-12;
+    }
+
+    &-refresh,
+    &-other {
+      display: flex;
+      padding-left: 27px;
+    }
+
+    &-trash,
+    &-open {
+      padding-left: 27px;
+      display: none;
+    }
+
+    &-interval {
+      display: flex;
+      margin-left: auto;
+      padding-right: 35px;
+
+      &-text {
+        font-family: $ff-roboto;
+        font-size: $fs-10;
+        line-height: $lh-11;
+        font-weight: 500;
+        color: $mission-control;
+        padding-top: 2px;
+        margin: 0;
+      }
+
+      &-left,
+      &-right {
+        padding-left: 23px;
+        font-size: $fs-10;
+        color: $noghrei-silver;
+        padding-top: 3px;
+      }
+    }
+  }
+
+  &__list {
+    width: 100%;
+
+    &-mail {
+      display: flex;
+      margin-right: 17px;
+      align-items: center;
+      position: relative;
+
+      &.read {
+        background-color: $cotton-ball;
+
+        .mailview__list-mail-icons {
+          background-color: $cotton-ball;
         }
-    
-        &-down{
-          padding-left: 7px;
-          font-size: $fs-12;
+
+        .mailview__list-mail-user-sender,
+        .mailview__list-mail-user-detail {
+          color: $smoked-pearl;
         }
-    
-        &-refresh, &-other{
-          display: flex;
-          padding-left: 27px;
-        }
-    
-        &-trash, &-open{
-          padding-left: 27px;
-          display: none;
-        }
-    
-        &-interval{
-          display: flex;
-          margin-left: auto;
-          padding-right: 35px;
-    
-          &-text{
-            font-family: $ff-roboto;
-            font-size: $fs-10;
-            line-height: $lh-11;
-            font-weight: 500;
-            color: $mission-control;
-            padding-top: 2px;
-            margin: 0;
-          }
-    
-          &-left,
-          &-right{
-            padding-left: 23px;
-            font-size: $fs-10;
-            color: $noghrei-silver;
-            padding-top: 3px;
+
+        .mailview__list-mail-select-star {
+          color: $smoked-pearl;
+
+          &.fa-solid {
+            color: $american-yellow; // Siyah olmasın diye
           }
         }
       }
+
+      &.unread {
+        .mailview__list-mail-user-sender,
+        .mailview__list-mail-user-detail {
+          color: $carbon;
+        }
+
+        .mailview__list-mail-select-star {
+          color: $carbon;
+
+          &.fa-solid {
+            color: $american-yellow;
+          }
+        }
+      }
+
+      &-select {
+        &-vertical {
+          position: absolute;
+          left: 0;
+          opacity: 0; // Görünürlüğü değiştirdiğim kısım
+          transition: opacity 0.3s ease;
+          display: none;
+          color: $black-panther;
+          font-size: $fs-13;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+
+        &-check {
+          margin-left: 14px;
+          transition: none;
+        }
+
+        &-star {
+          padding-left: 15px;
+          cursor: pointer;
+          transition: color 0.3s ease;
+
+          &.starred {
+            color: $american-yellow !important;
+          }
+        }
+      }
+
+      &-user {
+        display: flex;
+        align-items: center;
+        flex-grow: 1; // Kullanılabilir alanı kaplamasını sağladım
+        min-width: 0; // Overflow sorunlarını engellemek için
+
+        &-sender {
+          flex-basis: 15%; // Genişlik olarak %15 alıyor
+          min-width: 120px; // Minimum genişlik
+          font-family: $ff-roboto;
+          font-size: $fs-13;
+          line-height: $lh-15;
+          font-weight: 500;
+          color: $smoked-pearl;
+          padding-left: 15px;
+          padding-top: 10px;
+          margin: 0 0 10px 0;
+          white-space: nowrap; // Tek satırda tutar
+          overflow: hidden;
+          text-overflow: ellipsis; // Uzun metinlerde "..." ekler
+        }
+
+        &-detail {
+          flex-grow: 1; // Boş kalan alanı kaplar
+          min-width: 200px; // Minimum genişlik
+          max-width: 60%; // En fazla %60 genişlik kaplar
+          font-family: $ff-roboto;
+          font-size: $fs-13;
+          line-height: $lh-15;
+          font-weight: 400;
+          color: $smoked-pearl;
+          padding-top: 10px;
+          margin: 0 0 10px 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      &-date {
+        display: flex;
+        padding-right: 80px;
+        font-family: $ff-roboto;
+        font-size: $fs-10;
+        line-height: $lh-11;
+        font-weight: 400;
+        color: $black-panther;
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      &-icons {
+        position: absolute;
+        right: 15px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+
+        &:hover {
+          opacity: 1;
+          background-color: $white; //
+        }
+
+        span {
+          margin-left: 15px;
+          cursor: pointer;
+          font-size: $fs-13;
+          color: $black-panther;
+        }
+      }
+    }
+  }
+
+  .mailview__list {
+    &-icons {
+      display: none;
+    }
+
+    &-vertical {
+      display: none;
+    }
+
+    // Hover durumunda ikonları görünür yap
+    &:hover {
+      .mailview__list-mail-icons {
+        display: flex;
+      }
+      .mailview__list-mail-select-vertical {
+        display: inline;
+      }
+    }
+  }
 }
