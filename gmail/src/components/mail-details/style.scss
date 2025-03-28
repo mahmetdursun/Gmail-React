@@ -19,9 +19,20 @@
         padding-right: 23px;
       }
 
-      &-exclamation,&-trash,&-stick,&-open,
+      &-exclamation,&-trash,&-open,
       &-clock,&-check,&-folder,&-left{
         padding-right: 23px;
+      }
+
+      &-stick{
+        width: 1px;
+        height: 12px;
+        background-color: $christmas-silver;
+        border: none;
+        margin: 0;
+        margin-right: 23px;
+        position: relative;
+        top: -2px;
       }
 
       &-interval{
@@ -88,8 +99,8 @@
         }
 
         &-cancel{
-          padding: 9px 5px 15px 5px;
-          font-size: $fs-5;
+          padding: 4px 5px 15px 5px;
+          font-size: $fs-9;
           color: $squant;
         }
       }
@@ -98,6 +109,7 @@
         margin-left: auto;
         padding-right: 90px;
         color: $thames-dusk;
+        gap: 20px;
         
         &-print{
           font-size: $fs-13;
@@ -112,7 +124,7 @@
 
     &__sender{
       display: flex;
-      padding: 0 39px 20px 0;
+      padding: 0 39px 0 0;
 
       &-user{
         font-size: $fs-41;
@@ -126,6 +138,7 @@
         line-height: $lh-17;
         font-weight: 700;
         padding: 2px 0 0 16px;
+        gap: 5px;
 
         &-mail{
           font-family: $ff-roboto;
@@ -133,6 +146,7 @@
           line-height: $lh-17;
           font-weight: 700;
           color: $sonic-silver;
+          margin: 0;
         }
       }
 
@@ -151,7 +165,7 @@
 
         &-star{
           font-size: $fs-13;
-          padding: 4px 0 0 20px;
+          padding: 0 0 0 20px;
           cursor: pointer;
           transition: color 0.3s ease;
           color: $noghrei-silver;
@@ -168,13 +182,13 @@
 
         &-stick{
           font-size: $fs-11;
-          padding: 2px 0 0 20px;
+          padding: 1px 0 0 20px;
         }
       }
     }
 
     &__explanation{
-      padding: 12px 95px 0 57px;
+      padding: 0 95px 0 57px;
 
       &-text{
         font-family: $ff-roboto;
@@ -186,7 +200,7 @@
       }
 
       &-divider{
-        color: $bái-sè-white;
+        border: 2px solid $bái-sè-white;
         margin: 30px 0;
       }
     }

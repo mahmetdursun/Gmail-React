@@ -25,20 +25,19 @@ function MailDetails({ onToggleStar, onDelete }) {
 
   return (
     <div className="mdetail">
-      {/* Üst kontrol çubuğu */}
       <div className="mdetail__icons">
         <span className="mdetail__icons-back" onClick={() => navigate(-1)}>{icons.back}</span>
-        <span className="mdetail__icons-archive">{icons.archive}</span>
+        <span className="mdetail__icons-archive">{icons.archiveFolder}</span>
         <span className="mdetail__icons-exclamation">{icons.exclamation}</span>
         <span className="mdetail__icons-trash" onClick={() => {
           onDelete(mail.email);
-          navigate(`/gmail/${category}`); // ✅ Silince geri yönlendir
+          navigate(`/gmail/${category}`);
         }}>{icons.trash}</span>
-        <span className="mdetail__icons-stick">{icons.ellipsis}</span>
+        <hr className="mdetail__icons-stick" />
         <span className="mdetail__icons-open">{icons.openMail}</span>
         <span className="mdetail__icons-clock">{icons.clock}</span>
         <span className="mdetail__icons-check">{icons.check}</span>
-        <span className="mdetail__icons-stick">{icons.ellipsis}</span>
+        <hr className="mdetail__icons-stick" />
         <span className="mdetail__icons-folder">{icons.folder}</span>
         <span className="mdetail__icons-left">{icons.label}</span>
         <span className="mdetail__icons-vertical">{icons.ellipsis}</span>
@@ -50,7 +49,6 @@ function MailDetails({ onToggleStar, onDelete }) {
         </div>
       </div>
 
-      {/* Mail içeriği */}
       <div className="mdetail__content">
         <p className="mdetail__content-text">{mail.detail}</p>
 
@@ -65,7 +63,6 @@ function MailDetails({ onToggleStar, onDelete }) {
         </div>
       </div>
 
-      {/* Gönderen bilgileri */}
       <div className="mdetail__sender">
         <span className="mdetail__sender-user">{icons.user}</span>
         <span className="mdetail__sender-name">
@@ -83,7 +80,6 @@ function MailDetails({ onToggleStar, onDelete }) {
         </div>
       </div>
 
-      {/* Mail içeriği */}
       <div className="mdetail__explanation">
         <p className="mdetail__explanation-text">{mail.body || "No additional content available."}</p>
         <hr className="mdetail__explanation-divider" />

@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       { path: 'starred', element: <Starred /> },
       { path: 'sent', element: <Sent /> },
       { path: 'bin', element: <Bin /> },
-      { path: ":category/mail/:id", element: <MailDetails /> },
+      { path: ":category/:id", element: <MailDetails /> },
     ],
   },
   // {

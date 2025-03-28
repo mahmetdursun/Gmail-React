@@ -17,8 +17,18 @@
   padding-left: 48px;
   padding-right: 23px;
 }
-.mdetail__icons-exclamation, .mdetail__icons-trash, .mdetail__icons-stick, .mdetail__icons-open, .mdetail__icons-clock, .mdetail__icons-check, .mdetail__icons-folder, .mdetail__icons-left {
+.mdetail__icons-exclamation, .mdetail__icons-trash, .mdetail__icons-open, .mdetail__icons-clock, .mdetail__icons-check, .mdetail__icons-folder, .mdetail__icons-left {
   padding-right: 23px;
+}
+.mdetail__icons-stick {
+  width: 1px;
+  height: 12px;
+  background-color: #e0e0e0;
+  border: none;
+  margin: 0;
+  margin-right: 23px;
+  position: relative;
+  top: -2px;
 }
 .mdetail__icons-interval {
   display: flex;
@@ -77,8 +87,8 @@
   margin: 0;
 }
 .mdetail__content-inbox-cancel {
-  padding: 9px 5px 15px 5px;
-  font-size: 0.313rem;
+  padding: 4px 5px 15px 5px;
+  font-size: 0.563rem;
   color: #666666;
 }
 .mdetail__content-icons {
@@ -86,6 +96,7 @@
   margin-left: auto;
   padding-right: 90px;
   color: #64676c;
+  gap: 20px;
 }
 .mdetail__content-icons-print {
   font-size: 0.813rem;
@@ -96,7 +107,7 @@
 }
 .mdetail__sender {
   display: flex;
-  padding: 0 39px 20px 0;
+  padding: 0 39px 0 0;
 }
 .mdetail__sender-user {
   font-size: 2.563rem;
@@ -109,6 +120,7 @@
   line-height: 1.063rem;
   font-weight: 700;
   padding: 2px 0 0 16px;
+  gap: 5px;
 }
 .mdetail__sender-name-mail {
   font-family: "Roboto", sans-serif;
@@ -116,6 +128,7 @@
   line-height: 1.063rem;
   font-weight: 700;
   color: #757575;
+  margin: 0;
 }
 .mdetail__sender-info {
   display: flex;
@@ -131,7 +144,7 @@
 }
 .mdetail__sender-info-star {
   font-size: 0.813rem;
-  padding: 4px 0 0 20px;
+  padding: 0 0 0 20px;
   cursor: pointer;
   transition: color 0.3s ease;
   color: #bdbdbd;
@@ -145,10 +158,10 @@
 }
 .mdetail__sender-info-stick {
   font-size: 0.688rem;
-  padding: 2px 0 0 20px;
+  padding: 1px 0 0 20px;
 }
 .mdetail__explanation {
-  padding: 12px 95px 0 57px;
+  padding: 0 95px 0 57px;
 }
 .mdetail__explanation-text {
   font-family: "Roboto", sans-serif;
@@ -159,6 +172,6 @@
   margin: 0;
 }
 .mdetail__explanation-divider {
-  color: #eceff1;
+  border: 2px solid #eceff1;
   margin: 30px 0;
 }/*# sourceMappingURL=style.css.map */

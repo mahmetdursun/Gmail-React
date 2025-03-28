@@ -168,7 +168,8 @@ function MailView({ category, starred, sentOnly, bin }) {
     setMailItems(items);
     localStorage.setItem(`mailItems-${selectedTab}`, JSON.stringify(items));
   };
-
+  
+  //okunurluk güncelleme
   const toggleReadStatus = (email) => {
     const updatedMails = mailItems.map(mail =>
       mail.email === email ? { ...mail, read: !mail.read } : mail
@@ -177,6 +178,7 @@ function MailView({ category, starred, sentOnly, bin }) {
     localStorage.setItem(`mailItems-${selectedTab}`, JSON.stringify(updatedMails));
   };
 
+  //mail yıldızlama ve starred sayfası
   const toggleStarStatus = (email) => {
     const categoryKeys = ["Primary", "Promotions", "Social", "Sent"];
     let allMails = [];
@@ -206,7 +208,7 @@ function MailView({ category, starred, sentOnly, bin }) {
   };
   
 
-// GÜNCELLENMİŞ toggleDeleteStatus
+// mail silme ve bin sayfası
 const toggleDeleteStatus = (email) => {
   const categoryKeys = ["Primary", "Promotions", "Social", "Sent"];
   let allMails = [];
@@ -258,26 +260,6 @@ useEffect(() => {
   setMailItems(allMails);
 }, [selectedTab, starred, bin]);
 
-  // useEffect(() => {
-  //   let allMails = [
-  //     ...getStoredMails("mailItems-Primary", []),
-  //     ...getStoredMails("mailItems-Promotions", []),
-  //     ...getStoredMails("mailItems-Social", []),
-  //     ...getStoredMails("mailItems-Sent", []) 
-  //   ];
-  
-  //   if (starred) {
-  //     allMails = allMails.filter(mail => mail.starred && !mail.deleted);
-  //   } else {
-  //     allMails = getStoredMails(`mailItems-${selectedTab}`, mailCategories[selectedTab]);
-  //   }
-  
-  //   setMailItems(allMails);
-  // }, [selectedTab, starred]);
-
-
-
-
   const getCategoryPath = (tab) => {
     switch (tab) {
       case "Primary":
@@ -295,10 +277,9 @@ useEffect(() => {
   
   const handleMailClick = (mail) => {
     const pathCategory = getCategoryPath(selectedTab);
-    navigate(`/gmail/${pathCategory}/mail/${mail.id}`, { state: { mail } });
+    navigate(`/gmail/${pathCategory}/${mail.id}`, { state: { mail } });
   };
   
-
   return (
     <div className="mailview">
       <div className="mailview__controller">
