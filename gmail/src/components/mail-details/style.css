@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   color: #4f4f4f;
-  font-size: 0.875rem;
+  font-size: 1.063rem;
 }
 .mdetail__icons-back {
   cursor: pointer;
@@ -99,11 +99,10 @@
   gap: 20px;
 }
 .mdetail__content-icons-print {
-  font-size: 0.813rem;
+  font-size: 0.938rem;
 }
 .mdetail__content-icons-share {
-  font-size: 0.75rem;
-  padding-left: 19px;
+  font-size: 0.875rem;
 }
 .mdetail__sender {
   display: flex;
@@ -141,23 +140,24 @@
   font-weight: 500;
   color: #818488;
   margin: 0;
+  padding-top: 2px;
 }
 .mdetail__sender-info-star {
-  font-size: 0.813rem;
+  font-size: 0.938rem;
   padding: 0 0 0 20px;
   cursor: pointer;
   transition: color 0.3s ease;
   color: #bdbdbd;
 }
-.mdetail__sender-info-star.fa-solid {
+.mdetail__sender-info-star.starred {
   color: #f4b400;
 }
 .mdetail__sender-info-reply {
-  font-size: 0.875rem;
+  font-size: 0.938rem;
   padding: 0 0 0 20px;
 }
 .mdetail__sender-info-stick {
-  font-size: 0.688rem;
+  font-size: 0.75rem;
   padding: 1px 0 0 20px;
 }
 .mdetail__explanation {

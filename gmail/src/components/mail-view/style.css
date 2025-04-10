@@ -6,6 +6,7 @@
   margin-top: 16px;
   margin-left: 18px;
   position: relative;
+  padding-bottom: 12px;
 }
 .mailview__controller-check {
   width: 13px;
@@ -66,21 +67,9 @@
 .mailview__list-mail.read .mailview__list-mail-user-detail {
   color: #6d6e70;
 }
-.mailview__list-mail.read .mailview__list-mail-select-star {
-  color: #6d6e70;
-}
-.mailview__list-mail.read .mailview__list-mail-select-star.fa-solid {
-  color: #f4b400;
-}
 .mailview__list-mail.unread .mailview__list-mail-user-sender,
 .mailview__list-mail.unread .mailview__list-mail-user-detail {
   color: #333333;
-}
-.mailview__list-mail.unread .mailview__list-mail-select-star {
-  color: #333333;
-}
-.mailview__list-mail.unread .mailview__list-mail-select-star.fa-solid {
-  color: #f4b400;
 }
 .mailview__list-mail-select-vertical {
   position: absolute;
@@ -104,7 +93,7 @@
   transition: color 0.3s ease;
 }
 .mailview__list-mail-select-star.starred {
-  color: #f4b400 !important;
+  color: #f4b400;
 }
 .mailview__list-mail-user {
   display: flex;

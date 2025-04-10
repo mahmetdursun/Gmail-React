@@ -127,7 +127,7 @@ const tabOptions = [
 function MailView({ category, starred, sentOnly, bin }) {
   const [selectedTab, setSelectedTab] = useState(category || "Primary");
   const [mailItems, setMailItems] = useState([]);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     let storedMails;
@@ -135,9 +135,10 @@ function MailView({ category, starred, sentOnly, bin }) {
       if (sentOnly) {
         storedMails = JSON.parse(localStorage.getItem("mailItems-Sent")) || [];
       } else {
-        storedMails = JSON.parse(localStorage.getItem(`mailItems-${selectedTab}`)) 
-          || mailCategories[selectedTab] // 📌 Eğer localStorage boşsa, mailCategories'den çek
-          || [];
+        storedMails =
+          JSON.parse(localStorage.getItem(`mailItems-${selectedTab}`)) ||
+          mailCategories[selectedTab] || // 📌 Eğer localStorage boşsa, mailCategories'den çek
+          [];
       }
     } catch (error) {
       console.error("❌ LocalStorage Parse Hatası:", error);
@@ -151,11 +152,14 @@ function MailView({ category, starred, sentOnly, bin }) {
       const storedMails = localStorage.getItem(`mailItems-${selectedTab}`);
       const mergedMails = storedMails ? JSON.parse(storedMails) : [];
       setMailItems(mergedMails);
-      localStorage.setItem(`mailItems-${selectedTab}`, JSON.stringify(mergedMails));
+      localStorage.setItem(
+        `mailItems-${selectedTab}`,
+        JSON.stringify(mergedMails)
+      );
     }
   }, [selectedTab]);
 
-  const filteredMails = mailItems.filter(mail => {
+  const filteredMails = mailItems.filter((mail) => {
     if (bin) return mail.deleted === true; // Çöp kutusundakileri göster
     return mail.deleted === false && (starred ? mail.starred : true);
   });
@@ -168,97 +172,102 @@ function MailView({ category, starred, sentOnly, bin }) {
     setMailItems(items);
     localStorage.setItem(`mailItems-${selectedTab}`, JSON.stringify(items));
   };
-  
+
   //okunurluk güncelleme
   const toggleReadStatus = (email) => {
-    const updatedMails = mailItems.map(mail =>
+    const updatedMails = mailItems.map((mail) =>
       mail.email === email ? { ...mail, read: !mail.read } : mail
     );
     setMailItems(updatedMails);
-    localStorage.setItem(`mailItems-${selectedTab}`, JSON.stringify(updatedMails));
+    localStorage.setItem(
+      `mailItems-${selectedTab}`,
+      JSON.stringify(updatedMails)
+    );
   };
 
   //mail yıldızlama ve starred sayfası
   const toggleStarStatus = (email) => {
     const categoryKeys = ["Primary", "Promotions", "Social", "Sent"];
     let allMails = [];
-  
+
     for (const key of categoryKeys) {
       let mails = JSON.parse(localStorage.getItem(`mailItems-${key}`)) || [];
-  
-      const updated = mails.map(mail => {
+
+      const updated = mails.map((mail) => {
         if (mail.email === email) {
           return { ...mail, starred: !mail.starred };
         }
         return mail;
       });
-  
+
       localStorage.setItem(`mailItems-${key}`, JSON.stringify(updated));
       allMails = [...allMails, ...updated];
     }
-  
+
     // 🔁 Sadece Starred sayfası aktifse tüm kategorilerden yıldızlıları filtrele
     if (starred) {
-      const filtered = allMails.filter(mail => mail.starred && !mail.deleted);
+      const filtered = allMails.filter((mail) => mail.starred && !mail.deleted);
       setMailItems(filtered);
     } else {
       const refreshed = getStoredMails(`mailItems-${selectedTab}`, []);
       setMailItems(refreshed);
     }
   };
-  
 
-// mail silme ve bin sayfası
-const toggleDeleteStatus = (email) => {
-  const categoryKeys = ["Primary", "Promotions", "Social", "Sent"];
-  let allMails = [];
+  // mail silme ve bin sayfası
+  const toggleDeleteStatus = (email) => {
+    const categoryKeys = ["Primary", "Promotions", "Social", "Sent"];
+    let allMails = [];
 
-  for (const key of categoryKeys) {
-    let mails = JSON.parse(localStorage.getItem(`mailItems-${key}`)) || [];
+    for (const key of categoryKeys) {
+      let mails = JSON.parse(localStorage.getItem(`mailItems-${key}`)) || [];
 
-    const updated = mails.map(mail => {
-      if (mail.email === email) {
-        if (!mail.deleted) {
-          return { ...mail, deleted: true, originalCategory: key };
-        } else {
-          return { ...mail, deleted: false };
+      const updated = mails.map((mail) => {
+        if (mail.email === email) {
+          if (!mail.deleted) {
+            return { ...mail, deleted: true, originalCategory: key };
+          } else {
+            return { ...mail, deleted: false };
+          }
         }
-      }
-      return mail;
-    });
+        return mail;
+      });
 
-    localStorage.setItem(`mailItems-${key}`, JSON.stringify(updated));
-    allMails = [...allMails, ...updated];
-  }
+      localStorage.setItem(`mailItems-${key}`, JSON.stringify(updated));
+      allMails = [...allMails, ...updated];
+    }
 
-  if (bin) {
-    const filtered = allMails.filter(mail => mail.deleted);
-    setMailItems(filtered);
-  } else {
-    const refreshed = getStoredMails(`mailItems-${selectedTab}`, []);
-    setMailItems(refreshed);
-  }
-};
+    if (bin) {
+      const filtered = allMails.filter((mail) => mail.deleted);
+      setMailItems(filtered);
+    } else {
+      const refreshed = getStoredMails(`mailItems-${selectedTab}`, []);
+      setMailItems(refreshed);
+    }
+  };
 
-// GÜNCELLENMİŞ useEffect tüm durumları kapsar
-useEffect(() => {
-  let allMails = [
-    ...getStoredMails("mailItems-Primary", []),
-    ...getStoredMails("mailItems-Promotions", []),
-    ...getStoredMails("mailItems-Social", []),
-    ...getStoredMails("mailItems-Sent", []) 
-  ];
+  // GÜNCELLENMİŞ useEffect tüm durumları kapsar
+  useEffect(() => {
+    let allMails = [
+      ...getStoredMails("mailItems-Primary", []),
+      ...getStoredMails("mailItems-Promotions", []),
+      ...getStoredMails("mailItems-Social", []),
+      ...getStoredMails("mailItems-Sent", []),
+    ];
 
-  if (starred) {
-    allMails = allMails.filter(mail => mail.starred && !mail.deleted);
-  } else if (bin) {
-    allMails = allMails.filter(mail => mail.deleted);
-  } else {
-    allMails = getStoredMails(`mailItems-${selectedTab}`, mailCategories[selectedTab]);
-  }
+    if (starred) {
+      allMails = allMails.filter((mail) => mail.starred && !mail.deleted);
+    } else if (bin) {
+      allMails = allMails.filter((mail) => mail.deleted);
+    } else {
+      allMails = getStoredMails(
+        `mailItems-${selectedTab}`,
+        mailCategories[selectedTab]
+      );
+    }
 
-  setMailItems(allMails);
-}, [selectedTab, starred, bin]);
+    setMailItems(allMails);
+  }, [selectedTab, starred, bin]);
 
   const getCategoryPath = (tab) => {
     switch (tab) {
@@ -274,12 +283,12 @@ useEffect(() => {
         return "inbox";
     }
   };
-  
+
   const handleMailClick = (mail) => {
     const pathCategory = getCategoryPath(selectedTab);
     navigate(`/gmail/${pathCategory}/${mail.id}`, { state: { mail } });
   };
-  
+
   return (
     <div className="mailview">
       <div className="mailview__controller">
@@ -291,13 +300,19 @@ useEffect(() => {
         <span className="mailview__controller-open">{icons.openMail}</span>
 
         <div className="mailview__controller-interval">
-          <p className="mailview__controller-interval-text">1-{filteredMails.length} of {filteredMails.length}</p>
-          <span className="mailview__controller-interval-left">{icons.chevronLeft}</span>
-          <span className="mailview__controller-interval-right">{icons.chevronRight}</span>
+          <p className="mailview__controller-interval-text">
+            1-{filteredMails.length} of {filteredMails.length}
+          </p>
+          <span className="mailview__controller-interval-left">
+            {icons.chevronLeft}
+          </span>
+          <span className="mailview__controller-interval-right">
+            {icons.chevronRight}
+          </span>
         </div>
       </div>
 
-      {!sentOnly && (
+      {!starred && !bin && !sentOnly && (
         <div className="option__category">
           {tabOptions.map((tab, index) => (
             <SidebarOption
@@ -314,23 +329,36 @@ useEffect(() => {
       <DragDropContext onDragEnd={handleDragEnd}>
         <Droppable droppableId="mails">
           {(provided) => (
-            <table className="mailview__list" {...provided.droppableProps} ref={provided.innerRef}>
+            <table
+              className="mailview__list"
+              {...provided.droppableProps}
+              ref={provided.innerRef}
+            >
               <tbody>
                 {filteredMails.map((mail, index) => (
                   <Draggable key={mail.id} draggableId={mail.id} index={index}>
                     {(provided) => (
                       <tr
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      className={`mailview__list-mail ${mail.read ? "read" : "unread"}`}
-                      onClick={() => handleMailClick(mail)}
-                    >
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        className={`mailview__list-mail ${
+                          mail.read ? "read" : "unread"
+                        }`}
+                        onClick={() => handleMailClick(mail)}
+                      >
                         <td className="mailview__list-mail-select">
-                          <span className="mailview__list-mail-select-vertical">{icons.grip}</span>
-                          <input type="checkbox" className="mailview__list-mail-select-check" />
+                          <span className="mailview__list-mail-select-vertical">
+                            {icons.grip}
+                          </span>
+                          <input
+                            type="checkbox"
+                            className="mailview__list-mail-select-check"
+                          />
                           <span
-                            className={`mailview__list-mail-select-star ${mail.starred ? "starred" : ""}`}
+                            className={`mailview__list-mail-select-star ${
+                              mail.starred ? "starred" : ""
+                            }`}
                             onClick={(e) => {
                               e.stopPropagation(); // 🔹 Satırın tıklanmasını engelle
                               toggleStarStatus(mail.email);
@@ -340,22 +368,32 @@ useEffect(() => {
                           </span>
                         </td>
                         <td className="mailview__list-mail-user">
-                          <span className="mailview__list-mail-user-sender">{mail.sender}</span>
-                          <span className="mailview__list-mail-user-detail">{mail.detail}</span>
+                          <span className="mailview__list-mail-user-sender">
+                            {mail.sender}
+                          </span>
+                          <span className="mailview__list-mail-user-detail">
+                            {mail.detail}
+                          </span>
                         </td>
-                        <td className="mailview__list-mail-date">{mail.date}</td>
+                        <td className="mailview__list-mail-date">
+                          {mail.date}
+                        </td>
                         <td className="mailview__list-mail-icons">
-                        <span>{icons.archive}</span>
-                        <span onClick={(e) => {
-                            e.stopPropagation();
-                            toggleDeleteStatus(mail.email);
-                          }}>
+                          <span>{icons.archive}</span>
+                          <span
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleDeleteStatus(mail.email);
+                            }}
+                          >
                             {mail.deleted ? icons.restore : icons.trash}
                           </span>
-                          <span onClick={(e) => {
-                            e.stopPropagation();
-                            toggleReadStatus(mail.email);
-                          }}>
+                          <span
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleReadStatus(mail.email);
+                            }}
+                          >
                             {mail.read ? icons.closedMail : icons.openMail}
                           </span>
                           <span>{icons.snooze}</span>
@@ -375,4 +413,3 @@ useEffect(() => {
 }
 
 export default MailView;
-

@@ -4,17 +4,17 @@
   padding-top: 26px;
 }
 .sidebar__labels-add {
-  padding-left: 23px;
   display: flex;
   font-family: "Open Sans", sans-serif;
   font-size: 0.938rem;
   line-height: 1.25rem;
   font-weight: 600;
   color: #313234;
+  padding-bottom: 10px;
+  padding-left: 23px;
 }
 .sidebar__labels-add-header {
   margin: 0;
-  padding-bottom: 10px;
 }
 .sidebar__labels-add-icon {
   padding-left: 119px;

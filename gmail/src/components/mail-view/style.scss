@@ -7,6 +7,7 @@
     margin-top: 16px;
     margin-left: 18px;
     position: relative;
+    padding-bottom: 12px;
 
     &-check {
       width: 13px;
@@ -75,18 +76,10 @@
         .mailview__list-mail-icons {
           background-color: $cotton-ball;
         }
-
+        
         .mailview__list-mail-user-sender,
         .mailview__list-mail-user-detail {
           color: $smoked-pearl;
-        }
-
-        .mailview__list-mail-select-star {
-          color: $smoked-pearl;
-
-          &.fa-solid {
-            color: $american-yellow; // Siyah olmasın diye
-          }
         }
       }
 
@@ -94,14 +87,6 @@
         .mailview__list-mail-user-sender,
         .mailview__list-mail-user-detail {
           color: $carbon;
-        }
-
-        .mailview__list-mail-select-star {
-          color: $carbon;
-
-          &.fa-solid {
-            color: $american-yellow;
-          }
         }
       }
 
@@ -131,7 +116,7 @@
           transition: color 0.3s ease;
 
           &.starred {
-            color: $american-yellow !important;
+            color: $american-yellow;
           }
         }
       }

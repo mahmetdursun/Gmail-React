@@ -5,17 +5,17 @@
     padding-top: 26px;
 
     &-add {
-      padding-left: 23px;
       display: flex;
       font-family: $ff-sans;
       font-size: $fs-15;
       line-height: $lh-20;
       font-weight: 600;
       color: $stiletto;
+      padding-bottom: 10px;
+      padding-left: 23px;
 
       &-header {
         margin: 0;
-        padding-bottom: 10px;
       }
 
       &-icon {

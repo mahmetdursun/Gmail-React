@@ -8,7 +8,7 @@
       display: flex;
       align-items: center;
       color: $black-oak;
-      font-size: $fs-14;
+      font-size: $fs-17;
 
       &-back{
         cursor: pointer;
@@ -112,12 +112,11 @@
         gap: 20px;
         
         &-print{
-          font-size: $fs-13;
+          font-size: $fs-15;
         }
 
         &-share{
-          font-size: $fs-12;
-          padding-left: 19px;
+          font-size: $fs-14;
         }
       }
     }
@@ -161,27 +160,28 @@
           font-weight: 500;
           color: $mission-control;
           margin: 0;
+          padding-top: 2px;
         }
 
         &-star{
-          font-size: $fs-13;
+          font-size: $fs-15;
           padding: 0 0 0 20px;
           cursor: pointer;
           transition: color 0.3s ease;
           color: $noghrei-silver;
 
-          &.fa-solid {
+          &.starred {
             color: $american-yellow;
           }
         }
 
         &-reply{
-          font-size: $fs-14;
+          font-size: $fs-15;
           padding: 0 0 0 20px;
         }
 
         &-stick{
-          font-size: $fs-11;
+          font-size: $fs-12;
           padding: 1px 0 0 20px;
         }
       }

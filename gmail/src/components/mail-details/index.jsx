@@ -5,10 +5,10 @@ import icons from "../variables";
 import "./style.scss";
 
 function MailDetails({ onToggleStar, onDelete }) {
-  const { category, id } = useParams(); // ✅ URL'den kategori ve mail ID çek
+  const { category, id } = useParams(); // URL'den kategori ve mail ID çek
   const location = useLocation();
   const navigate = useNavigate();
-  const mail = location.state?.mail; // ✅ State'ten mail verisini çek
+  const mail = location.state?.mail; // State'ten mail verisini çek
 
   useEffect(() => {
     if (!mail) {
@@ -58,8 +58,8 @@ function MailDetails({ onToggleStar, onDelete }) {
         </div>
 
         <div className="mdetail__content-icons">
-          <span className="mdetail__content-print">{icons.print}</span>
-          <span className="mdetail__content-share">{icons.share}</span>
+          <span className="mdetail__content-icons-print">{icons.print}</span>
+          <span className="mdetail__content-icons-share">{icons.share}</span>
         </div>
       </div>
 
@@ -72,7 +72,12 @@ function MailDetails({ onToggleStar, onDelete }) {
 
         <div className="mdetail__sender-info">
           <p className="mdetail__sender-info-text">{mail.date}</p>
-          <span className="mdetail__sender-info-star" onClick={() => onToggleStar(mail.email)}>
+          <span
+          className={`mdetail__sender-info-star ${mail.starred ? "starred" : ""}`}
+          onClick={() => {
+            e.stopPropagation(); // 🔹 Satırın tıklanmasını engelle
+            toggleStarStatus(mail.email);
+          }}>
             {mail.starred ? icons.solidStar : icons.star}
           </span>
           <span className="mdetail__sender-info-reply">{icons.reply}</span>
